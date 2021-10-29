@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thtm.taigongthtmproject.mapper.ConcreteStrengthMapper">
+    <select id="selectAll" resultType="com.thtm.taigongthtmproject.model.entity.ConcreteStrength">
+        select * from concrete_strength order by create_time desc
+    </select>
+
+    <select id="selectR7AndR28" resultType="com.thtm.taigongthtmproject.model.entity.ConcreteStrength">
+        select r7,r28,r28_real from concrete_strength order by create_time desc
+    </select>
+
+    <select id="pageConcreteStrength" resultType="com.thtm.taigongthtmproject.model.entity.ConcreteStrength">
+        select *  from concrete_strength
+        where 1=1
+
+        <if test="param.createTime != null and param.createTime != ''">
+            and create_time like concat('%' , #{param.createTime} , '%')
+        </if>
+        <if test="param.R28 != null and param.R28 != ''">
+            and R28 = #{param.R28}
+        </if>
+        <if test="param.R7 != null and param.R7 != ''">
+            and R7 = #{param.R7}
+        </if>
+        order by create_time desc
+    </select>
+</mapper>

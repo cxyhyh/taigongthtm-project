@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: taigongthtm-project
+  profiles:
+    active: dev
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 100MB
+      max-request-size: 215MB
+
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/thtm?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 123456
+
+file:
+  prefix: F:\files\
+
+mybatis-plus:
+  mapper-locations: classpath*:mapper/*Mapper.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+---
+spring:
+  profiles: dev
+server:
+  port: 8080
+
+---
+spring:
+  profiles: test
+server:
+  port: 8081
+
+
+---
+spring:
+  profiles: pro
+server:
+  port: 8082
+
+
