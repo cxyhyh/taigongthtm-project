@@ -15,7 +15,7 @@ public class CORSConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 // 限制了路径和域名的访问
-                registry.addMapping("/concreteStrength*").allowedOrigins("http://localhost:8081");
+                registry.addMapping("/concreteStrength*").allowedOrigins("http://121.43.158.100:8081");
             }
         };
     }

@@ -1,6 +1,17 @@
 spring:
   application:
     name: taigongthtm-project
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':               # 匹配所有请求
+            allowedOrigins: "*"  #跨域处理 允许所有的域
+            allowedMethods:      # 支持的方法
+              - GET
+              - POST
+              - PUT
+              - DELETE
   profiles:
     active: dev
   servlet:
@@ -12,7 +23,7 @@ spring:
 
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/thtm?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://121.43.158.100:3306/thtm?useUnicode=true&characterEncoding=utf8
     username: root
     password: 123456
 
@@ -29,19 +40,19 @@ mybatis-plus:
 spring:
   profiles: dev
 server:
-  port: 8080
+  port: 8088
 
 ---
 spring:
   profiles: test
 server:
-  port: 8081
+  port: 8089
 
 
 ---
 spring:
   profiles: pro
 server:
-  port: 8082
+  port: 8090
 
 
